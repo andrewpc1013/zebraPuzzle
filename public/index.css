@@ -1,13 +1,31 @@
+:root {
+    --navbarHeight: 60px;
+    --defaultTextColor: rgb(210, 210, 210);
+    --defaultBackgroundColor: rgb(88, 89, 99);;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Poppins";
+    color: var(--defaultTextColor);
+}
+
 body {
     margin: 0;
 }
 
 #navbar {
-    background-color: black;
-    color: white;
     display: flex;
     align-items: center;
     flex-grow: 1;
-    max-height: 10%;
-    min-height: 40px;
+    height: var(--navbarHeight);
+    background-color: black;
+    color: white;
+}
+
+#container {
+    height: calc(100vh - var(--navbarHeight));
+    background-color: var(--defaultBackgroundColor);
 }
