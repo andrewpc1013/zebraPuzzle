@@ -1,7 +1,8 @@
 :root {
     --navbarHeight: 60px;
-    --defaultTextColor: rgb(210, 210, 210);
-    --defaultBackgroundColor: rgb(88, 89, 99);;
+    --defaultTextColor: rgb(230, 230, 250);
+    --defaultBackgroundColor: rgb(88, 89, 109);
+    --backgroundDark: rgb(30, 30, 50);
 }
 
 * {
@@ -10,6 +11,23 @@
     box-sizing: border-box;
     font-family: "Poppins";
     color: var(--defaultTextColor);
+}
+
+button {
+    width: fit-content;
+    padding: 3px;
+    border: 2px solid var(--backgroundDark);
+    border-radius: 3px;
+    color: var(--backgroundDark);
+    background-color: white;
+}
+
+input {
+    margin-left: 10px;
+    border: 2px solid var(--backgroundDark);
+    border-radius: 3px;
+    color: var(--backgroundDark);
+    background-color: white;
 }
 
 body {
@@ -21,11 +39,22 @@ body {
     align-items: center;
     flex-grow: 1;
     height: var(--navbarHeight);
-    background-color: black;
+    background-color: var(--backgroundDark);
     color: white;
+    padding-left: 20px;
+}
+
+#navbar h2 {
+    padding-right: 20px;
 }
 
 #container {
     height: calc(100vh - var(--navbarHeight));
     background-color: var(--defaultBackgroundColor);
+}
+
+#elementsPage {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 }
