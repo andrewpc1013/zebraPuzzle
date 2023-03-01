@@ -4,9 +4,8 @@ import { Routes, Route } from "react-router-dom";
 
 const Main = () => {
     const [numPeople, setNumPeople] = useState(0);
-    const [numProperties, setNumProperties] = useState(0);
+    const [properties, setProperties] = useState({});
     const [validElements, setValidElements] = useState(false);
-    const [elements, setElements] = useState([]);
 
     return(
         <div id="main">
@@ -20,16 +19,17 @@ const Main = () => {
                         <Elements
                             numPeople={numPeople}
                             setNumPeople={setNumPeople}
-                            numProperties={numProperties}
-                            setNumProperties={setNumProperties}
                             validElements={validElements}
                             setValidElements={setValidElements}
-                            elements={elements}
-                            setElements={setElements}
+                            properties={properties}
+                            setProperties={setProperties}
                         ></Elements>
                     }/>
                     <Route path="/Clues" element = {
-                        <Clues/>
+                        <Clues
+                            properties={properties}
+                            setProperties={setProperties}
+                        ></Clues>
                     }/>
                 </Routes>
             </div>

@@ -23,11 +23,25 @@ button {
 }
 
 input {
-    margin-left: 10px;
+    width: fit-content;
+    padding: 3px;
     border: 2px solid var(--backgroundDark);
     border-radius: 3px;
     color: var(--backgroundDark);
     background-color: white;
+}
+
+select {
+    width: fit-content;
+    padding: 3px;
+    border: 2px solid var(--backgroundDark);
+    border-radius: 3px;
+    color: var(--backgroundDark);
+    background-color: white;
+}
+
+option {
+    color: var(--backgroundDark);
 }
 
 body {
@@ -57,4 +71,48 @@ body {
     display: flex;
     flex-direction: column;
     padding: 20px;
+}
+
+#elementsPage h1 {
+    margin-bottom: 10px;
+}
+
+#elementsPage form {
+    margin-bottom: 10px;
+}
+
+#elementsPage div {
+    margin-bottom: 10px;
+}
+
+#elementsPage label {
+    margin-bottom: 10px;
+}
+
+.elementSelector {
+    display: flex;
+    flex-direction: row;
+}
+
+#propertyName {
+    margin-right: 10px;
+}
+
+.active {
+    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: green;
+}
+
+.inactive {
+    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.elemCell {
+    background-color: var(--defaultTextColor);
+    color: var(--backgroundDark);
+    border: solid 2px var(--backgroundDark);
 }
