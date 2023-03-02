@@ -6,6 +6,17 @@ const Main = () => {
     const [numPeople, setNumPeople] = useState(0);
     const [properties, setProperties] = useState({});
     const [validElements, setValidElements] = useState(false);
+    const [clues, setClues] = useState([]);
+    // clues = [{
+    //     element1: "string", (an element)
+    //     relationship: "string", (relationship)
+    //     element2: "string" (an element)
+    // },
+    // {
+    //     element1: "string", (an element)
+    //     relationship: "string", (relationship)
+    //     element2: "string" (an element)
+    // }]
 
     return(
         <div id="main">
@@ -29,6 +40,8 @@ const Main = () => {
                         <Clues
                             properties={properties}
                             setProperties={setProperties}
+                            clues={clues}
+                            setClues={setClues}
                         ></Clues>
                     }/>
                 </Routes>
