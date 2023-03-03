@@ -52,10 +52,12 @@ const Clues = (props) => {
 
     const saveClues = () => {
         localStorage.setItem("clues", JSON.stringify(clues));
+        localStorage.setItem("validClues", JSON.stringify(validClues));
     }
 
     const clearClues = () => {
         localStorage.removeItem("clues");
+        localStorage.removeItem("validClues");
         setClues([]);
         // localStorage.clear();
     }

@@ -71,6 +71,7 @@ const Elements = (props) => {
     const saveElements = () => {
         localStorage.setItem("properties", JSON.stringify(properties));
         localStorage.setItem("numPeople", JSON.stringify(numPeople));
+        localStorage.setItem("validElements", JSON.stringify(validElements));
     }
 
     const clearElements = () => {

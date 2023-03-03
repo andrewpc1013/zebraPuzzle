@@ -29,7 +29,12 @@ const Main = () => {
             <div id="container">
                 <Routes>
                     <Route exact path="/" element = {
-                        <Home/>
+                        <Home
+                            validElements={validElements}
+                            setValidElements={setValidElements}
+                            validClues={validClues}
+                            setValidClues={setValidClues}
+                        ></Home>
                     }/>
                     <Route path="/Elements" element = {
                         <Elements
