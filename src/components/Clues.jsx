@@ -39,9 +39,9 @@ const Clues = (props) => {
             }
         })
 
-        if (valid) {
+        if (valid && validClueDisplay) {
             validClueDisplay.className = "valid";
-        } else {
+        } else if (validClueDisplay) {
             validClueDisplay.className = "invalid";
         }
 

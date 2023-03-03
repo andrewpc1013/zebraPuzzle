@@ -24,6 +24,7 @@ const ClueEditor = (props) => {
                     clues={clues}
                     setClues={setClues}
                     index={index}
+                    checkValidClues={checkValidClues}
                 ></ElementTable>
             }
             {/* if choosing = 2 make a selector that chooses a positive or negative relationship between elements */}

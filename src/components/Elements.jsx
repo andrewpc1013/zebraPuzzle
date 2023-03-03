@@ -59,9 +59,9 @@ const Elements = (props) => {
             valid = false;
         }
 
-        if (valid) {
+        if (valid && validElemDisplay) {
             validElemDisplay.className = "valid";
-        } else {
+        } else if (validElemDisplay) {
             validElemDisplay.className = "invalid";
         }
 
