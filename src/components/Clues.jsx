@@ -3,27 +3,66 @@ import { ElementTable, Clue, ClueEditor } from "./"
 
 const Clues = (props) => {
     const [numClues, setNumClues] = useState(0);
-    const [choosing, setChoosing] = useState(0);
-    //choosing: 0 = nothing
-    //          1 = first element
-    //          2 = relationship
-    //          3 = second element
-
 
     const properties = props.properties;
     const setProperties = props.setProperties;
     const clues = props.clues;
     const setClues = props.setClues;
+    const validClues = props.validClues;
+    const setValidClues = props.setValidClues;
+
+    const validClueDisplay = document.getElementById("validClues");
 
     useEffect(() => {
         if (localStorage.getItem("properties")) {
             setProperties(JSON.parse(localStorage.getItem("properties")));
         }
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        if (localStorage.getItem("clues")) {
+            setClues(JSON.parse(localStorage.getItem("clues")));
+            setNumClues(clues.length);
+        }
+    }, []);
+
+    useEffect(() => {
+        checkValidClues();
+    }, [numClues]);
+
+    const checkValidClues = () => {
+        let valid = true;
+
+        clues.map((clue) => {
+            if (clue.element1Prop === clue.element2Prop) {
+                valid = false;
+            }
+        })
+
+        if (valid) {
+            validClueDisplay.className = "valid";
+        } else {
+            validClueDisplay.className = "invalid";
+        }
+
+        setValidClues(valid);
+
+        return valid;
+    }
+
+    const saveClues = () => {
+        localStorage.setItem("clues", JSON.stringify(clues));
+    }
+
+    const clearClues = () => {
+        localStorage.removeItem("clues");
+        setClues([]);
+        // localStorage.clear();
+    }
 
     const addClue = () => {
         let tempArray = clues;
-        tempArray.push({element1: "", relationship: "", element2: ""});
+        tempArray.push({element1: "", element1Prop: "", relationship: "", element2: "", element2Prop: ""});
         setClues(tempArray);
         setNumClues(clues.length);
     }
@@ -44,31 +83,25 @@ const Clues = (props) => {
                                 clue={clue}
                                 index={idx}
                                 setClues={setClues}
-                                choosing={choosing}
-                                setChoosing={setChoosing}
                                 properties={properties}
+                                setNumClues={setNumClues}
+                                checkValidClues={checkValidClues}
                             ></Clue>
                         )
                     })
                 }
             </div>
-            {/* {
-                //probably delete this
-                (choosing !== 0) && <ClueEditor
-                    choosing={choosing}
-                    setChoosing={setChoosing}
-                    properties={properties}
-                    clues={clues}
-                    setClues={setClues}
-                ></ClueEditor>
-            } */}
-            {
-                (choosing === 0) && <button onClick={() => {
-                    // setChoosing(1);
-                    addClue();
-                }}>New Clue</button>
-            }
-            <button onClick={() => console.log(clues)}>Clues</button>
+            <button onClick={() => {
+                addClue();
+            }}>New Clue</button>
+            <button onClick={() => {
+                saveClues();
+            }}>Save Clues</button>
+            <button onClick={() => {
+                clearClues();
+            }}>Clear Clues</button>
+            <button onClick={() => console.log(clues)}>Console Log Clues</button>
+            <h2 id="validClues">Valid Clues: {`${validClues}`}</h2>
         </div>
     )
 }

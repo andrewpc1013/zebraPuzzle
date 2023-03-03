@@ -11,6 +11,8 @@ const Elements = (props) => {
     const validElements = props.validElements;
     const setValidElements = props.setValidElements;
 
+    const validElemDisplay = document.getElementById("validElements");
+
     const possibleProperties = {
         pets: ["lion", "panda", "fox", "frog", "elephant"], 
         name: ["William", "Mary", "Johanne", "Louis", "Sarah"], 
@@ -56,6 +58,13 @@ const Elements = (props) => {
         if (numPeople == 0 || Object.keys(properties).length == 0) {
             valid = false;
         }
+
+        if (valid) {
+            validElemDisplay.className = "valid";
+        } else {
+            validElemDisplay.className = "invalid";
+        }
+
         return valid;
     }
 
@@ -65,9 +74,10 @@ const Elements = (props) => {
     }
 
     const clearElements = () => {
-        localStorage.removeItem("properties");
-        localStorage.removeItem("numPeople")
-        // localStorage.clear();
+        // localStorage.removeItem("properties");
+        // localStorage.removeItem("numPeople")
+        localStorage.clear();
+        setProperties({});
     }
 
     return (
@@ -120,13 +130,13 @@ const Elements = (props) => {
                     Add Property
                 </button>
             </form>
-            <h2>{`${validElements}`}</h2>
+            <h2 id="validElements">Valid Elements: {`${validElements}`}</h2>
             <button onClick={() => {
                 saveElements();
             }}>Save Elements</button>
             <button onClick={() => {
                 clearElements();
-            }}>Clear Elements</button>
+            }}>Clear Project</button>
             <button onClick={() => {
                 console.log(JSON.parse(localStorage.getItem("properties")));
             }}>Print Elements</button>

@@ -3,6 +3,8 @@
     --defaultTextColor: rgb(230, 230, 250);
     --defaultBackgroundColor: rgb(88, 89, 109);
     --backgroundDark: rgb(30, 30, 50);
+    --validGreen: rgb(180, 250, 180);
+    --invalidRed: rgb(250, 180, 180);
 }
 
 * {
@@ -16,6 +18,9 @@
 button {
     width: fit-content;
     padding: 3px;
+    min-height: 30px;
+    min-width: 30px;
+    margin: 3px;
     border: 2px solid var(--backgroundDark);
     border-radius: 3px;
     color: var(--backgroundDark);
@@ -111,8 +116,42 @@ body {
     padding-right: 10px;
 }
 
+.valid {
+    color: var(--validGreen);
+}
+
+.invalid {
+    color: var(--invalidRed);
+}
+
+#clueContainer {
+    margin: 3px;
+    padding: 5px;
+    border: solid 2px var(--backgroundDark);
+}
+
+#clue {
+    display: flex;
+    flex-direction: row;
+}
+
+#elemTables {
+    display: flex;
+    flex-direction: row;
+}
+
+.propCell {
+    margin: 3px;
+    padding: 5px;
+    border: solid 2px var(--defaultTextColor);
+    background-color: var(--backgroundDark);
+    color: var(--defaultTextColor);
+}
+
 .elemCell {
+    margin: 3px;
+    padding: 2px;
+    border: solid 2px var(--backgroundDark);
     background-color: var(--defaultTextColor);
     color: var(--backgroundDark);
-    border: solid 2px var(--backgroundDark);
 }

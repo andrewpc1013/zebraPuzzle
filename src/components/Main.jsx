@@ -7,15 +7,20 @@ const Main = () => {
     const [properties, setProperties] = useState({});
     const [validElements, setValidElements] = useState(false);
     const [clues, setClues] = useState([]);
+    const [validClues, setValidClues] = useState(false);
     // clues = [{
     //     element1: "string", (an element)
+    //     element1Prop: "string", (property category for element1)
     //     relationship: "string", (relationship)
     //     element2: "string" (an element)
+    //     element2Prop: "string", (property category for element2)
     // },
     // {
     //     element1: "string", (an element)
+    //     element1Prop: "string", (property category for element1)
     //     relationship: "string", (relationship)
     //     element2: "string" (an element)
+    //     element2Prop: "string", (property category for element2)
     // }]
 
     return(
@@ -42,6 +47,8 @@ const Main = () => {
                             setProperties={setProperties}
                             clues={clues}
                             setClues={setClues}
+                            validClues={validClues}
+                            setValidClues={setValidClues}
                         ></Clues>
                     }/>
                 </Routes>
