@@ -30,8 +30,14 @@ const Main = () => {
                 <Routes>
                     <Route exact path="/" element = {
                         <Home
+                            properties={properties}
+                            setProperties={setProperties}
+                            numPeople={numPeople}
+                            setNumPeople={setNumPeople}
                             validElements={validElements}
                             setValidElements={setValidElements}
+                            clues={clues}
+                            setClues={setClues}
                             validClues={validClues}
                             setValidClues={setValidClues}
                         ></Home>

@@ -6,4 +6,5 @@ export { default as Clues } from "./Clues";
 export { default as Property } from "./Property";
 export { default as ElementTable } from "./ElementTable";
 export { default as ClueEditor } from "./ClueEditor";
-export { default as Clue } from "./Clue"
+export { default as Clue } from "./Clue";
+export { default as PuzzleSolver } from "./PuzzleSolver";
