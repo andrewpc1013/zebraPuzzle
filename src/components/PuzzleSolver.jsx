@@ -1,5 +1,7 @@
 import React from "react"
 
+//Test for git push
+
 const PuzzleSolver = (props) => {
     const properties = props.properties;
     const numPeople = props.numPeople;
