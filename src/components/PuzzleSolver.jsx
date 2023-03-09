@@ -139,11 +139,21 @@ const PuzzleSolver = (props) => {
     }
 
     const useNegativeClue = (ghosts, clue) => {
-        // add element1 as a negative element to all ghosts matching element2
-
-        // add element2 as a negative element to all ghosts matching element1
-
         console.log("negative clue")
+
+        ghosts.forEach((ghost) => {
+            let ghostPositiveElements = Object.values(ghost.positiveElements);
+
+            // add element1 as a negative element to all ghosts matching element2
+            if (ghostPositiveElements.includes(clue.element2)) {
+                addNegativeElement(ghost, clue.element1, clue.element1Prop);
+            }
+
+            // add element2 as a negative element to all ghosts matching element1
+            if (ghostPositiveElements.includes(clue.element1)) {
+                addNegativeElement(ghost, clue.element2, clue.element2Prop);
+            }
+        })
 
         return ghosts;
     }
